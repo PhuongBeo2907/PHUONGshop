@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="/lib/bootstrap.css">
+    <script src="/lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="/lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="/lib/angular.js"></script>
+    <script src="/lib/angular-route.js"></script>
+</head>
+<script>
+    var app = angular.module('myApp', ['ngRoute']);
+    app.controller('loginCtrl', function($scope, $http, $window, $rootScope) {
+        $scope.account = {
+            name: '',
+            password: ''
+        };
+
+        $scope.FormMessage = '';
+        $scope.FormStatus = true;
+
+
+        $scope.onClickLogin = function() {
+            $scope.FormMessage = '';
+            $scope.FormStatus = true;
+
+            
+
+            if($scope.account.name === '' ) {
+                $scope.FormStatus = false;
+                $scope.FormMessage = 'Mời điền đủ tên đăng nhập';
+                return;
+            }
+
+            if($scope.account.password === '') {
+                $scope.FormStatus = false;
+                $scope.FormMessage = 'Mời điền đủ mật khẩu';
+                return;
+            }
+
+            $http({
+                method: "get",
+                url: 'http://localhost:3000/account'
+            }).then(function(response) {
+                //tìm kiếm trong dl trả về từ server
+                var checkData = response.data.find(function(item) {
+                    return item.name === $scope.account.name && item.password === $scope.account.password;
+                });
+
+                //nếu tìm thấy tài khoản, chuyển đến trang layout hoặc admin 
+                if (CheckData) {
+                        $scope.loggedInAccount = CheckData;
+
+                        // Lưu thông tin người dùng vào $rootScope
+                        $rootScope.currentUser = $scope.loggedInAccount;
+
+                        if (CheckData.role === 'user') {
+                            $window.location.href = '/index_account.html';
+                        } else if (CheckData.role === 'admin') {
+                            $window.location.href = '/admin.html';
+                        }
+                    } else {
+                        // Nếu không tìm thấy, hiển thị thông báo lỗi
+                        $scope.FormStatus = false;
+                        $scope.FormMessage = 'Tên đăng nhập hoặc mật khẩu không chính xác';
+                    }
+            })
+        }
+    })
+</script>
+<body ng-app="myApp">
+    <div class="bg-primary row">
+        <div class="col"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-sm ">
+
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center bg-white">
+                <div>
+                    <a href="/index.html"><img src="/img/logo.webp" alt="" style="height: 70px;width: 85px;"></a>
+                </div>
+            </div>
+        </div>        
+    </nav>
+
+    
+    <div class="container mt-3 bg-white" style="width: 600px;" ng-controller="loginCtrl">
+        <h2 class="text-center">Đăng nhập tài khoản</h2>
+        <form>
+          <div class="mb-3">
+            <label for="">Tên tài khoản/ email</label>
+            <input type="text" class="form-control border-0 custom-secondary" id="pwd" placeholder="Email" name="first name">
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="">Mật khẩu</label>
+            <input type="password" class="form-control border-0 custom-secondary" id="password" placeholder="Mật khẩu" name="name" aria-describedby="password-toggle">
+          </div>
+           <!-- Nút đăng nhập -->
+           <ul class="navbar-nav text-center">
+                <!--Đăng nhập-->
+                <li class="nav-item">
+                    <button type="submit" ng-click="onClickLogin()" class="btn btn-primary rounded-1">
+                        Đăng nhập
+                    </button>
+                </li>
+            </ul>
+        </form>
+        
+        <div class="ms-5 mt-3" >
+            <div class="d-flex">
+                <p>Khách hàng mới?</p>
+                <a href="/pages/signUp.html" class="text-primary">Tạo tài khoản</a>
+            </div>
+            <div class="d-flex">
+                <p>Quên mật khẩu?</p>
+                <a href="" class="text-primary">Khôi phục mật khẩu</a>
+            </div>
+        </div>
+
+        <div class="alert alert-danger mt-1" ng-hide="FormStatus">
+            {{FormMessage}}
+        </div>
+    </div>
+
+
+      
+          
+    
+</body>
+</html>

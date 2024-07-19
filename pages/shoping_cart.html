@@ -1,0 +1,47 @@
+<div class="container bg-white p-3">
+    <div class="row">
+        <div class="col-8 m-3" ng-repeat="item in giohang">
+            <h5>Giỏ hàng của bạn</h5>
+            <hr class="mb-5" style="width: 500px;">
+            <div class="d-flex justify-content-between border p-3 rounded-2">
+                <div class="d-flex">
+                    <img class="me-3 radio ratio-1x1" ng-src="{{item.hinh_anh}}" alt="" style="width: 150px;">
+                    <div>
+                        <H6>{{item.ten}}</H6>
+                        <div class="d-flex">
+                            <p class="text-secondary fw-bold">{{item.gia_ban}}đ</p>
+                            <p class="fw-lighter text-secondary text-decoration-line-through ms-2">{{item.gia_niem_yet}}đ</p>
+                        </div>
+                        <button class="btn text-decoration-underline text-danger">Xóa</button>
+                    </div>
+                </div>
+                <div>
+                    <p class="fw-bold ms-4">{{item.gia_ban}}đ</p>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
+                            <input type="text" class="form-control text-center" value="{{item.quantity}}" id="quantityInput" style="width: 50px;">
+                            <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h5>Thông tin đơn hàng</h5>
+        <hr style="width: 500px;">
+        <div class="d-flex">
+            <div class="mt-2">
+                <span>Tổng tiền: </span>
+                <span class="text-danger fw-bold" ng-repeat="item in giohang">{{item.thanh_tien}}đ</span>
+            </div>
+            <a class="btn btn-danger ms-lg-5 w-25" href="#!xac-nhan-don-hang">Mua Hàng</a>
+        </div>
+        <p class="fw-lighter text-sm">Phí vận chuyển sẽ được tính ở trang thanh toán. 
+            <br>
+            Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.
+        </p>
+        <!-- <p>Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.</p> -->
+    </div>
+</div>

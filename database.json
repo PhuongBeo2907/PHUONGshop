@@ -1,0 +1,229 @@
+{
+  "danh-muc": [
+    {
+      "id": "DM01",
+      "ten": "Tee",
+      "mo_ta": "Vải cotton, vải linen, denim",
+      "ngay_tao": "2/2/2024, 11:33:58 PM",
+      "ngay_cap_nhat": "2/3/2024, 4:34:59 AM",
+      "trang_thai": "Đang bán"
+    },
+    {
+      "id": "DM03",
+      "ten": "Sweater",
+      "mo_ta": "Dày dặn, cute",
+      "ngay_tao": "2/3/2024, 4:39:01 AM",
+      "ngay_cap_nhat": "",
+      "trang_thai": "Đang bán"
+    },
+    {
+      "id": "DM04",
+      "ten": "Cardigan",
+      "mo_ta": "form rộng, dài",
+      "ngay_tao": "2/3/2024, 4:39:21 AM",
+      "ngay_cap_nhat": "",
+      "trang_thai": "Đang bán"
+    },
+    {
+      "id": "DM02",
+      "ten": "Hoddie",
+      "mo_ta": "Áo blouse, váy, áo dài, áo khoác",
+      "ngay_tao": "2/3/2024, 5:00:33 AM",
+      "ngay_cap_nhat": "",
+      "trang_thai": "Đang bán"
+    }
+  ],
+  "san-pham": [
+    {
+      "id": "SP01",
+      "ten": "8YO RETRO ART A TEE",
+      "hinh_anh": "img/sp01.png",
+      "danh_muc": "DM02",
+      "gia_niem_yet": "350000",
+      "gia_ban": "169000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 1:50:46 AM"
+    },
+    {
+      "id": "SP02",
+      "ten": "8YO CHECKMATE TEE",
+      "hinh_anh": "img/sp02.png",
+      "danh_muc": "DM01",
+      "gia_niem_yet": "350000",
+      "gia_ban": "169000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 5:03:25 AM"
+    },
+    {
+      "id": "SP03",
+      "ten": "8YO POPULAR TEE",
+      "hinh_anh": "img/sp03.png",
+      "danh_muc": "DM01",
+      "gia_niem_yet": "350000",
+      "gia_ban": "169000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 5:04:16 AM"
+    },
+    {
+      "id": "SP04",
+      "ten": "NAUGHTY TEE ver2.0 # COLOR",
+      "hinh_anh": "img/sp07.png",
+      "danh_muc": "DM01",
+      "gia_niem_yet": "350000",
+      "gia_ban": "169000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:07:38 AM"
+    },
+    {
+      "id": "SP05",
+      "ten": "8YO GENIUS TEE",
+      "hinh_anh": "img/sp04.png",
+      "danh_muc": "DM01",
+      "gia_niem_yet": "350000",
+      "gia_ban": "169000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:08:21 AM"
+    },
+    {
+      "id": "SP06",
+      "ten": "BONE PATTERN - CREAM BROWN",
+      "hinh_anh": "img/sp05.png",
+      "danh_muc": "DM04",
+      "gia_niem_yet": "400000",
+      "gia_ban": "299000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:36:23 AM"
+    },
+    {
+      "id": "SP07",
+      "ten": "BONE PATTERN CARDIGAN-BLACK",
+      "hinh_anh": "img/sp06.png",
+      "danh_muc": "DM04",
+      "gia_niem_yet": "400000",
+      "gia_ban": "299000",
+      "so_luong": "20",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:10:00 AM"
+    },
+    {
+      "id": "SP11",
+      "ten": "EMBROIDERY HOODIE # WHITE",
+      "hinh_anh": "img/sp12.png",
+      "danh_muc": "DM02",
+      "gia_niem_yet": "400000",
+      "gia_ban": "249000",
+      "so_luong": "25",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:10:51 AM"
+    },
+    {
+      "id": "SP12",
+      "ten": "INTERNATIONAL TEE ver2.0 # 3 COLOR",
+      "hinh_anh": "img/sp08.png",
+      "danh_muc": "DM01",
+      "gia_niem_yet": "300000",
+      "gia_ban": "169000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:11:44 AM"
+    },
+    {
+      "id": "SP13",
+      "ten": "8YO INDOCHINE HOODIE",
+      "hinh_anh": "img/sp10.png",
+      "danh_muc": "DM02",
+      "gia_niem_yet": "500000",
+      "gia_ban": "249000",
+      "so_luong": "25",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:12:17 AM"
+    },
+    {
+      "id": "SP14",
+      "ten": "HOODIE ZIP VACATION # BLACK",
+      "hinh_anh": "img/sp12.png",
+      "danh_muc": "DM02",
+      "gia_niem_yet": "300000",
+      "gia_ban": "200000",
+      "so_luong": "20",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:13:00 AM"
+    },
+    {
+      "id": "SP15",
+      "ten": "NAUGHTY TEE ver2.0 # COLOR",
+      "hinh_anh": "img/sp10.png",
+      "danh_muc": "DM01",
+      "gia_niem_yet": "300000",
+      "gia_ban": "169000",
+      "so_luong": "30",
+      "so_luong_da_ban": "0",
+      "trang_thai": "Đang bán",
+      "ngay_tao": "2/3/2024, 6:13:56 AM"
+    }
+  ],
+  "account": [
+    {
+      "name": "phuong2907",
+      "email": "phuong@gmail.com",
+      "password": "123",
+      "role": "user",
+      "id": 1
+    },
+    {
+      "name": "oanhpk",
+      "email": "oanhpk@gmail.com",
+      "password": "123",
+      "role": "user",
+      "id": 2
+    },
+    {
+      "name": "phương",
+      "email": "phuongpttph40494@fpt.com",
+      "password": "123",
+      "role": "user",
+      "id": 3
+    }
+  ],
+  "shopping-cart": [
+    {
+      "id_sp": "SP01",
+      "hinh_anh": "img/sp01.png",
+      "ten": "8YO RETRO ART A TEE",
+      "gia_ban": "169000",
+      "gia_niem_yet": "350000",
+      "quantity": 18,
+      "thanh_tien": 169000,
+      "id": 1
+    },
+    {
+      "id_sp": "SP07",
+      "hinh_anh": "img/sp06.png",
+      "ten": "BONE PATTERN CARDIGAN-BLACK",
+      "gia_ban": "299000",
+      "gia_niem_yet": "400000",
+      "quantity": 2,
+      "thanh_tien": 598000,
+      "id": 2
+    }
+  ],
+  "don-hang": [],
+  "don_hang_chi_tiet": []
+}

@@ -1,0 +1,82 @@
+<div class="rounded p-3">
+    <table ng-controller="deleteSP" class="table container">
+        <h3 class="text-primary ms-lg-5">Danh sách sản phẩm</h3>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Danh mục</th>
+            <th scope="col">Giá gốc</th>
+            <th scope="col">Giá bán</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Số lượng đã bán</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in deleteSP">
+            <td>{{item.id}}</td>
+            <td>{{item.ten}}</td>
+            <td>
+                <div class="ratio ratio-1x1">
+                    <div class="bg-light">
+                        <img ng-src="{{item.hinh_anh}}" class="mh-100 mw-100">
+                    </div>
+                </div>
+            </td>
+            <td>
+               {{item.danh_muc}}
+            </td>
+            <td>{{item.giaNiemYet| number}}</td>
+            <td>{{item.gia_ban| number}}</td>
+            <td>{{item.so_luong}}</td>
+            <td>{{item.so_luong_da_ban}}</td>
+            <td>
+              <span
+                ng-class="{'badge bg-success rounded-pill': item.trang_thai === 'Đang bán', 'badge bg-danger rounded-pill': item.trang_thai === 'Đã ngừng bán'}">{{item.trang_thai}}</span>
+            </td>
+            <td>
+                <a href="#!sanpham-detail/{{item.id}}" class="btn btn-primary">Xem</a>
+                <a href="#!sanpham-update/{{item.id}}" class="btn btn-warning">Sửa</a>
+                <a class="btn btn-danger" data-bs-toggle="modal"
+                data-bs-target="#myModal-{{item.id}}">
+                Xóa
+            </a>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal-{{item.id}}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header ">
+                            <h4 class="modal-title ">Xác nhận</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body  ">
+                            Bạn có chắc chắn muốn xóa sản phẩm : <p class="text-danger">
+                                {{item.ten}}</p>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+
+                            <button class="btn btn-danger" ng-click="onClickDeleteSP(item.id)">Xác nhận
+                                xóa</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </td>
+          </tr>
+          
+        </tbody>
+    </table>
+    
+</div>

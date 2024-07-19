@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="/lib/bootstrap.css">
+    <script src="/lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="/lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="/lib/angular.js"></script>
+    <script src="/lib/angular-route.js"></script>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('signUpCtrl', function($scope, $http, $location) {
+            $scope.account = {
+                name: '',
+                email: '',
+                password: '',
+                role: 'user'
+            };
+
+            $scope.confirmPassword = '';
+
+            $scope.FormMessage = '';
+            $scope.FormStatus = true;
+
+            $scope.showPassword = false;
+            $scope.showConfirmPassword = false;
+
+            $scope.onClickDK = function() {
+                $scope.FormMessage = '';
+                $scope.FormStatus = true;
+
+                if($scope.account.name === '') {
+                    $scope.FormStatus = false;
+                    $scope.FormMessage = 'mời bạn điền tên tài khoản';
+                    return;
+                }
+
+                if($scope.account.email === '') {
+                    $scope.FormStatus = false;
+                    $scope.FormMessage = 'mời bạn điền email';
+                    return;
+                }
+
+                var email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(!email.test($scope.account.email)) {
+                    $scope.FormStatus = false;
+                    $scope.FormMessage = 'Email không hợp lệ, mời nhập lại';
+                    return;
+                }
+
+                if($scope.account.password === '') {
+                    $scope.FormStatus = false;
+                    $scope.FormMessage = 'Mời bạn nhập mật khẩu';
+                    return;
+                }
+
+                if($scope.account.confirmPassword === '') {
+                    $scope.FormStatus = false;
+                    $scope.FormMessage = 'Mời bạn xác nhận mật khẩu';
+                    return;
+                }
+
+                if($scope.account.password !== $scope.confirmPassword) {
+                    $scope.FormStatus = false;
+                    $scope.FormMessage = 'Mật khẩu và xác nhận MK không trùng khớp';
+                    return;
+                }
+
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:3000/account',
+                    data: $scope.account
+                }).then(function(response) {
+                    alert('Đăng kí thành công');
+                    $scope.goToAccountPage = function() {
+                        $location.path('/index_account.html');
+                    }
+                })
+
+            }
+
+        })
+    </script>
+
+
+</head>
+<body class="bg-light" ng-app="myApp">
+    <div ng-controller="signUpCtrl">
+
+    
+        <div class="bg-primary row">
+            <div class="col"></div>
+        </div>
+
+        <nav class="navbar navbar-expand-sm ">
+
+            <div class="container">
+                <div class="d-flex justify-content-center align-items-center bg-white">
+                    <div>
+                        <a href="/index.html"><img src="/img/logo.webp" alt="" style="height: 70px;width: 85px;"></a>
+                    </div>
+                    <!-- Links -->
+                    
+                </div>
+            </div>        
+        </nav>
+
+        <div class="container mt-3 bg-white" style="width: 600px;">
+            <h2 class="text-center">Tạo tài khoản</h2>
+            <form>
+            <div class="mb-3">
+                <input ng-model="account.name" type="name" class="form-control border-0 custom-secondary" placeholder="Tên tài khoản" name="first name" autofocus>
+            </div>
+            <br>
+            <div class="mb-3 mt-3">
+                <input ng-model="account.email" type="email" class="form-control border-0 custom-secondary" placeholder="Email" name="Email" autofocus>
+            </div>
+            <br>
+            <div class="mb-3 mt-3">
+                <input ng-model="account.password" class="form-control border-0 custom-secondary" placeholder="Mật khẩu" name="password" type="{{ showPassword ? 'text' : 'password' }}">
+            </div>
+            <!-- ô checkbox hiển thị mật khẩu -->
+            <!-- <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="showPass1" ng-model="showPassword">
+                <label class="form-check-label" for="showPass1">Hiển thị mật khẩu</label>
+            </div> -->
+            <br>
+            <div class="mb-3 mt-3 ">
+                <input ng-model="confirmPassword" type="{{showConfirmPassword ? 'text' : 'password' }}" ng-model="signUp.rePass"  class="form-control border-0 custom-secondary" id="pwd" placeholder="Xác nhận mật khẩu" name="password">
+            </div>
+            <!-- ô checkbox hiển thị mật khẩu -->
+            <!-- <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="showPass2" ng-model="showConfirmPassword">
+                <label class="form-check-label" for="showPass2">Hiển thị mật khẩu</label>
+            </div> -->
+            <br>
+            <!-- Nút đăng nhập -->
+            <ul class="navbar-nav text-center">
+                <!--Đăng nhập-->
+                <li class="nav-item">
+                    <button type="submit" ng-click="onClickDK()" class="btn btn-primary rounded-1">
+                        Đăng ký
+                    </button>
+                </li>
+            </ul>
+            <br>
+            <div class="alert alert-danger mt-1" ng-hide="FormStatus">
+                {{FormMessage}}
+            </div>
+
+            <br>
+            <!-- Nút chuyển đến trang đăng ký -->
+            <div class="mb-3 text-center">
+                <small class="text-muted">Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></small>
+            </div>
+            <div>
+                <a href="/index.html" class="btn bg-info text-decoration-none">Quay lại</a>
+            </div>
+            </form>
+        </div>
+
+
+        <!-- footer -->
+        <div class="border-top mt-5">
+            <div class="container d-flex mt-2">
+                <div class="col-3">
+                    <h5>Về 8YO</h5>
+                    <p class="fw-light">Đưa đến một chất lượng sản phẩm hoàn hảo với một giá thành hợp lí nhất. Luôn đặt khách hàng lên trên cả lợi nhuận. Tự hào là một Local Brand nhận được sự hài lòng của 99,99% khách hàng!</p>
+                </div>
+                <div class="col-3 ms-3">
+                    <br>
+                    <div class="d-flex mt-2">
+                        <p class="fw-bold">Điện thoại: </p>
+                        <p> 0814570032</p>
+                    </div>
+                    <div class="d-flex">
+                        <p class="fw-bold">Email:</p>
+                        <p>8yo.studio@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h5>Hỗ trợ khách hàng</h5>
+                    <nav class="navbar bg-light">
+                        <div class="container-fluid">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                            <a class="nav-link text-decoration-underline" href="#">Giới thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-decoration-underline" href="#">Chính sách đổi trả</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-decoration-underline" href="#">Chính sách bảo mật</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-decoration-underline" href="#">Điều khoản dịch vụ</a>
+                            </li>
+                        </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-3">
+                    <h5>Chăm sóc khách hàng</h5>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <i class="fa-solid fa-phone fa-2x align-items-center"></i>
+                        <div class="ms-3">
+                            <h5 class="fw-lighter">0814570032</h5>
+                            <a href="">8yo.studio@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

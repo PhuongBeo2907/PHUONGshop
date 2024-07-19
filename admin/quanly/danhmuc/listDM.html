@@ -1,0 +1,35 @@
+<div class=" rounded p-3">
+  <table ng-controller="listDM" class="table container">
+    <h3 class="text-primary ms-lg-5">Danh sách danh mục</h3>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên danh mục</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col">Thao tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in danhsach">
+        <td>{{item.id}}</td>
+        <td>{{item.ten}}</td>
+        <td>
+           {{item.mo_ta}}
+        </td>
+        <td>
+          <span
+            ng-class="{'badge bg-success rounded-pill': item.trang_thai === 'Đang bán', 'badge bg-danger rounded-pill': item.trang_thai === 'Đã ngừng bán'}">{{item.trang_thai}}</span>
+        </td>
+        <td>
+            <a href="#!danhmuc-detail/{{item.id}}" class="btn btn-primary">Xem</a>
+            <a href="#!danhmuc-update/{{item.id}}" class="btn btn-warning">Sửa</a>
+            <a href="#!danhmuc-delete" class="btn btn-danger">Xóa</a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+  

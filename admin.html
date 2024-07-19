@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QL sản phẩm</title>
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script>
+        var app = angular.module('myApp', ['ngRoute']);
+        app.config(function($routeProvider) {
+            $routeProvider
+            //danh mục
+            .when("/danhmuc-quanly", {
+                templateUrl: "admin/quanly/QuanLyDM.html",
+                controller: "QLDanhMuc"
+            })
+            .when("/danhmuc-list", {
+                templateUrl: "admin/quanly/danhmuc/listDM.html",
+                controller: "listDM"
+            })
+            .when("/danhmuc-create", {
+                templateUrl: "admin/quanly/danhmuc/createDM.html",
+                controller: "createDM"
+            })
+            .when("/danhmuc-detail/:id", {
+                templateUrl: "admin/quanly/danhmuc/detailDM.html",
+                controller: "detailDM"
+            })
+            .when("/danhmuc-update/:id", {
+                templateUrl: "admin/quanly/danhmuc/updateDM.html",
+                controller: "updateDM"
+            })
+            .when("/danhmuc-delete", {
+                templateUrl: "admin/quanly/danhmuc/deleteDM.html",
+                controller: "deleteDM"
+            })
+            //dơn hàng
+            .when("/don-hang", {
+                templateUrl: "admin/quanly/QuanLyDH.html",
+                controller: "QLDonHang"
+            })
+            .when("/donhang-list", {
+                templateUrl: "admin/quanly/donhang/listDH.html",
+                controller: "listDH"
+            })
+            .when("/donhang-detail/:id", {
+                templateUrl: "admin/quanly/donhang/detailDH.html",
+                controller: "detailDH"
+            })
+            .when("/donhang-update/:id", {
+                templateUrl: "admin/quanly/donhang/updateDH.html",
+                controller: "updateDH"
+            })
+            //sản phẩm
+            .when("/san-pham", {
+                templateUrl: "admin/quanly/QuanLySP.html",
+                controller: "QLSanPham"
+            })
+            .when("/sanpham-list", {
+                templateUrl: "admin/quanly/sanpham/listSP.html",
+                controller: "listSP"
+            })
+            .when("/sanpham-create", {
+                templateUrl: "admin/quanly/sanpham/createSP.html",
+                controller: "createSP"
+            })
+            .when("/sanpham-detail/:id", {
+                templateUrl: "admin/quanly/sanpham/detailSP.html",
+                controller: "detailSP"
+            })
+            .when("/sanpham-update/:id", {
+                templateUrl: "admin/quanly/sanpham/updateSP.html",
+                controller: "updateSP"
+            })
+        })
+    </script>
+
+    <script src="admin/quanly/QuanLyDM.html"></script>
+    <script src="admin/quanly/QuanLySP.js"></script>
+    <script src="admin/quanly/QuanLyDH.js"></script>
+    <!-- danh mục -->
+    <script src="admin/quanly/danhmuc/listDM.js"></script>
+    <script src="admin/quanly/danhmuc/createDm.js"></script>
+    <script src="admin/quanly/danhmuc/detailDM.js"></script>
+    <script src="admin/quanly/danhmuc/updateDM.js"></script>
+    <script src="admin/quanly/danhmuc/deleteDM.js"></script>
+    <!-- sản phẩm -->
+    <script src="admin/quanly/sanpham/listSP.js"></script>
+    <script src="admin/quanly/sanpham/createSP.js"></script>
+    <script src="admin/quanly/sanpham/detailSP.js"></script>
+    <script src="admin/quanly/sanpham/updateSP.js"></script>
+    <script src="admin/quanly/sanpham/deleteSP.js"></script>
+    <!-- đơn hàng -->
+    <script src="admin/quanly/donhang/listDH.js"></script>
+    <script src="admin/quanly/donhang/detailDH.js"></script>
+    <script src="admin/quanly/donhang/updateDH.js"></script>
+    <!--Thư viện dùng để lấy thời gian-->
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+</head>
+<body ng-app="myApp">
+    <div>
+        <nav class="navbar navbar-expand-sm bg-light shadow">
+            <div class="container-fluid">
+                <!-- logo -->
+                <a href="index.html">
+                    <img src="img/logo.webp" alt="" style="max-height: 40px;">
+                </a>
+                <!-- link -->
+                <!-- thông tin user -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="d-flex">
+                            <a class="nav-link text-dark" href="#">Xin chào </a>
+                            <a class="nav-link text-dark ms-0" href="#">Phương phạm </a>
+                        </div>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="signUp.html">Đăng xuất</a>
+                        </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex">
+            <div class="bg-light p-2" style="width: 250px; min-height: calc(100vh - 60px);">
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#menu-danhmuc">Quản lý danh mục</a>
+                      <div class="collapse" id="menu-danhmuc">
+                        <ul class="list-unstyled mt-2">
+                            <li><a class="nav-link btn btn-info text-start text-dark" href="#!danhmuc-list">Danh sách</a></li>
+                            <li><a class="nav-link btn btn-info text-start text-dark" href="#!danhmuc-create">Thêm</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#menu-sanpham">Quản lý sản phẩm</a>
+                      <div class="collapse" id="menu-sanpham">
+                        <ul class="list-unstyled mt-2">
+                            <li><a class="nav-link btn btn-info text-start text-dark" href="#!sanpham-list">Danh sách</a></li>
+                            <li><a class="nav-link btn btn-info text-start text-dark" href="#!sanpham-create">Thêm</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#menu-donhang">Quản lý đơn hàng</a>
+                      <div class="collapse" id="menu-donhang">
+                        <ul class="list-unstyled mt-2">
+                            <li><a class="nav-link btn btn-info text-start text-dark" href="#!donhang-list">Danh sách</a></li>
+                            <li><a class="nav-link btn btn-info text-start text-dark" href="#!donhang-create">Thêm</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+            </div>
+            <div class="mt-3" style="width: calc(100% - 250px);">
+                <div ng-view>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+
+    
+
+</body>
+</html>

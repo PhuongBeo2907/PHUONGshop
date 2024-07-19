@@ -1,0 +1,80 @@
+
+    <div class="container d-flex" style="margin-top: 60px;">
+        <div class="col-6">
+            <h3><a href="index.html">7PP Studio</a></h3>
+            <p>------</p>
+            <p class="fw-bold">Thông tin giao hàng</p>
+            
+            <form >
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">Họ tên</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="Nhập tên">
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="phoneNumber" class="form-label">Email</label>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Nhập email">
+                  </div>
+            
+                <div class="mb-3">
+                  <label for="phoneNumber" class="form-label">Số điện thoại</label>
+                  <input type="tel" class="form-control" id="phoneNumber" placeholder="Nhập sdt">
+                </div>
+            
+                <div class="mb-3">
+                  <label for="address" class="form-label">Địa chỉ</label>
+                  <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ">
+                </div>
+            
+                <div class="mb-3" style="width: 200px;">
+                  <label for="district" class="form-label"> Tỉnh/ thành</label>
+                  <select class="form-select" id="district">
+                    <option selected disabled>Chọn tỉnh</option>
+                    <option value="district1">Thái Bình</option>
+                    <option value="district2">Hà Nội</option>
+                    <option value="district3">Nam Định</option>
+                    <option value="district3">Ninh Bình</option>
+                    <option value="district3">Nam Định</option>
+                    <!-- Thêm các quận/huyện khác vào đây -->
+                  </select>
+                </div>
+            
+                <button type="submit" class="btn btn-primary"><a class="text-white" href="/index.html">Thanh toán</a></button>
+              </form>
+        </div>
+        <div class="col-6 m-5" ng-controller="payController" >
+            <div class="d-flex" ng-repeat="item in danhsach2">
+                <img class="me-3" ng-src="{{item.hinh_anh}}" alt="" style="width: 150px;">
+                <div>
+                    <H6>BONE PATTERN CARDIGAN - CREAM BROWN</H6>
+                    <div class="d-flex">
+                        <span>Số lượng: {{item.quantity}}</span>
+                    </div>
+                    <div class="d-flex">
+                        <p class="text-secondary">229,000đ</p>
+                        <p class="fw-lighter text-secondary text-decoration-line-through ms-2">390,000đ</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex">
+                <input class="" type="text" placeholder="Mã giảm giá" style="width: 230px;">
+                <button class="btn ms-4" style="background-color: gray;">Áp dụng</button>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <p>Tổng số tiền: </p>
+                <p>229,000đ</p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p>Phí vận chuyển: </p>
+                <p>0đ</p>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <p>Tổng thanh toán: </p>
+                <p class="fw-bold">229,000đ</p>
+            </div>
+        </div>
+    </div>
